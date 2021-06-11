@@ -1,4 +1,7 @@
-# bare-test-web
+# Secaf
+
+## Description
+This is a web application that takes in images, sends to [an API](https://github.com/OluwadaraDaily/secaf-api) an returns a response based on whether or not the image has a face on it. 
 
 ## Build Setup
 

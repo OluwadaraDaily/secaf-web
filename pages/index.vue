@@ -54,11 +54,10 @@ export default {
       // Check to prevent null data POST request
       if (this.imageData != null) {
         const response = await this.$axios.$post('http://127.0.0.1:8000/upload', formData)
-
         // Send message depending on response
         if(response['success']) {
-
-          alert(response['success'])
+          // Show an alert response
+          alert(response['success'] + "    " + "Faces: "  + response['faces'])
 
           // Set the value of the input file to null to prevent resubmission
           document.getElementById("imagefile").value = null
@@ -83,9 +82,13 @@ export default {
       // The delete API call
       const response = await this.$axios.$delete(`http://localhost:8000/delete/${id}`)
 
+
       // This is to persist the changes on the front end,
       // by getting the updated images list
       this.getImages()
+
+      // Alert a response
+      alert(response['message'])
     }
   },
 
@@ -127,10 +130,11 @@ input[type="submit"]:hover, .images-section button:hover {
 
 .images-section {
   display: flex;
+  flex-wrap: wrap;
 }
 .image {
   padding: 1rem;
-  margin: 2rem 0;
+  margin: 2rem .5rem;
   display: flex;
   flex-direction: column;
   border: 1px solid #000;
