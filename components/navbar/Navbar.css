@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 2px solid white;
+}
+
+.navbar-brand {
+  padding: 0 2rem;
+}
