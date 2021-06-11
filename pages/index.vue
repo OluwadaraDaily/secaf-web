@@ -22,7 +22,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -30,8 +29,8 @@ export default {
       images : []
     }
   },
-
   methods: {
+
     // Set the file data
     handleChange (e) {
       this.imageData = e.target.files[0]
@@ -47,6 +46,7 @@ export default {
     },
 
     async fileUpload() {
+
       // Attach file to a form data type
       const formData = new FormData()
       formData.append('imageData',this.imageData)
@@ -58,7 +58,8 @@ export default {
         // Send message depending on response
         if(response['success']) {
 
-          alert(response['success'])
+          // Show an alert response
+          alert(response['success'] + "    " + "Faces: "  + response['faces'])
 
           // Set the value of the input file to null to prevent resubmission
           document.getElementById("imagefile").value = null
@@ -76,19 +77,17 @@ export default {
         // Disable button if someone tries to submit an empty file
         document.getElementById("submit").disabled = true
       }
-
     },
-
     async deleteImage(id) {
       // The delete API call
       const response = await this.$axios.$delete(`http://localhost:8000/delete/${id}`)
-
       // This is to persist the changes on the front end,
       // by getting the updated images list
       this.getImages()
+      // Alert a response
+      alert(response['message'])
     }
   },
-
   mounted() {
     this.getImages()
   }
@@ -103,7 +102,6 @@ export default {
 .upload-section {
   padding: 1rem 0;
 }
-
 input[type="file"] {
   width: 90%;
   padding: 3rem 1rem;
@@ -118,19 +116,18 @@ input[type="submit"], .images-section button {
   border-radius: .35rem;
   background-color: #fff;
 }
-
 input[type="submit"]:hover, .images-section button:hover {
   color: #e6f3f7;
   background-color: #000;
   cursor: pointer;
 }
-
 .images-section {
   display: flex;
+  flex-wrap: wrap;
 }
 .image {
   padding: 1rem;
-  margin: 2rem 0;
+  margin: 2rem .5rem;
   display: flex;
   flex-direction: column;
   border: 1px solid #000;
@@ -139,6 +136,4 @@ input[type="submit"]:hover, .images-section button:hover {
 .image > img {
   margin: .5rem 0;
 }
-
-
 </style>
