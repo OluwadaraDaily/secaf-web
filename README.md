@@ -1,4 +1,7 @@
-# bare-test-web
+# Secaf
+This is a [web app](https://secaf.netlify.app/) that takes in your image, processes it through an [API](https://secaf-api.herokuapp.com/) and then tells you whether or not there are faces on the picture.
+
+If there are, it will show the picture in the gallery below the input section. If there are no faces on the picture, it will inform you and the image will not be added to the gallery.
 
 ## Build Setup
 
