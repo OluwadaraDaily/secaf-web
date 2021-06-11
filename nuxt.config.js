@@ -44,7 +44,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseURL: ""
+    baseURL: "https://secaf-api.herokuapp.com/"
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

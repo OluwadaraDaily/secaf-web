@@ -41,7 +41,7 @@ export default {
 
     async getImages() {
       this.images = []
-      const response = await this.$axios.$get("http://localhost:8000/get_images")
+      const response = await this.$axios.$get("get_images")
       this.images.push(...response['images'])
     },
 
@@ -53,7 +53,7 @@ export default {
 
       // Check to prevent null data POST request
       if (this.imageData != null) {
-        const response = await this.$axios.$post('http://127.0.0.1:8000/upload', formData)
+        const response = await this.$axios.$post('upload', formData)
 
         // Send message depending on response
         if(response['success']) {
@@ -80,7 +80,7 @@ export default {
     },
     async deleteImage(id) {
       // The delete API call
-      const response = await this.$axios.$delete(`http://localhost:8000/delete/${id}`)
+      const response = await this.$axios.$delete(`delete/${id}`)
       // This is to persist the changes on the front end,
       // by getting the updated images list
       this.getImages()
